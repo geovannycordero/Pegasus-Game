@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public float xSpeed = 3;
     public float yChangeSpeed = 1;
-    public Vector3 stageDimensions = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+    //public Vector3 stageDimensions = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(3, rb.velocity.y);
-        if (rb.position.y > stageDimensions.y) { 
+        //if (rb.position.y > stageDimensions.y) { 
         if (Input.GetKey(KeyCode.DownArrow) /* No se haya salido de la pantalla*/)
         {
             rb.velocity = new Vector2(rb.velocity.x, -2);
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, 0);
         }
-        }
+        //}
 
     }
 }
