@@ -4,34 +4,43 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public Rigidbody rb;
-    public float xSpeed = 3;
-    public float yChangeSpeed = 1;
-    //public Vector3 stageDimensions = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+    private Vector2 pegasusTargetPosition;
+    public float Yincrement;
+    public float speed;
+    public float maximumY;
+    public float minimumY;
+    public float xValue;
+    public float yStartPosition;
+    public int lives;
+
+    // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        
+        pegasusTargetPosition = new Vector2(xValue, yStartPosition);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(0, rb.velocity.y);
-        //if (rb.position.y > stageDimensions.y) { 
-        if (Input.GetKey(KeyCode.DownArrow) /* No se haya salido de la pantalla*/)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, -2);
-        } else if (Input.GetKey(KeyCode.UpArrow) /* No se haya salido de la pantalla*/)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 2);
-        } else
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-        }
-        //}
 
+        if (lives > 0)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, pegasusTargetPosition, speed);
+            if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maximumY)
+            {
+                pegasusTargetPosition = new Vector2(xValue, transform.position.y + Yincrement);
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minimumY)
+            {
+                pegasusTargetPosition = new Vector2(xValue, transform.position.y - Yincrement);
+            }
+        }
+        else
+        {
+
+            Destroy(gameObject);
+        }
     }
 }
