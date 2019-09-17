@@ -24,6 +24,10 @@ public class Arrow : MonoBehaviour {
     if (other.CompareTag("Player")) {
       other.GetComponent<Player>().lives = other.GetComponent<Player>().lives - 1;
       Debug.Log("Lives: " + other.GetComponent<Player>().lives);
+      if(other.GetComponent<Player>().lives <= 0) {
+        Debug.Log("Should quit");
+        Application.Quit();
+      }
       Destroy(gameObject);
     }
   }
