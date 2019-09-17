@@ -6,9 +6,6 @@ using UnityEngine;
 public class RandomObjectSpawner : MonoBehaviour {
   public GameObject arrow;
   public GameObject lightning;
-  public enum EnumObjects {
-    thunder, arrow
-  }
   private float timeBetweenArrowSpawns;
   private float timeBetweenThunderSpawns;
   // Time to decrease when there is a level up
@@ -19,12 +16,10 @@ public class RandomObjectSpawner : MonoBehaviour {
   public int minPauseTimeThunder;
   public int initialDistanceArrowLightning;
 
-
-
   // Start is called before the first frame update
   void Start() {
     int randomNumber = Random.Range(0, 2);
-    if (randomNumber==0) {
+    if (randomNumber == 0) {
       timeBetweenArrowSpawns = Random.Range(minPauseTimeArrow, maxPauseTimeArrow)+ initialDistanceArrowLightning;
     } else {
       timeBetweenThunderSpawns = Random.Range(minPauseTimeArrow, maxPauseTimeArrow) + initialDistanceArrowLightning;
