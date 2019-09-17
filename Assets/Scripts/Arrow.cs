@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour {
   public float speed;
-  public float xStartValue;
-  public float yStartValue;
   public float minimumX;
 
   void Start() {
-
   }
 
-  // Update is called once per frame
   void Update() {
     transform.Translate(Vector2.left * speed * Time.deltaTime);
     if (transform.position.x <= minimumX) {
