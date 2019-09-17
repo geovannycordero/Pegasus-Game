@@ -6,48 +6,76 @@ using UnityEngine;
 public class RandomObjectSpawner : MonoBehaviour
 {
     public GameObject arrow;
+    public GameObject lightning;
     public enum EnumObjects
     {
         thunder, arrow
     }
-    private float timeBetweenSpawns;
-    public float startTimeBetweenSpawns;
+    /*
+    public float starttimeBetweenArrowSpawns;
+    
+    public float starttimeBetweenThunderSpawns;*/
+    private float timeBetweenArrowSpawns;
+    private float timeBetweenThunderSpawns;
     // Time to decrease when there is a level up
-    public float decreaseTime;
-    public float minTime = 0.65f;
+    //public float decreaseTime;
+    //public float minTime = 0.65f;
     public Vector2[] initialPositions;
-    public int randomPause;
+    //public int randomPause;
     public int maxPauseTimeArrow;
     public int minPauseTimeArrow;
+    public int maxPauseTimeThunder;
+    public int minPauseTimeThunder;
+    public int initialDistanceArrowLightning;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        int randomNumber = Random.Range(0, 2);
+        if (randomNumber==0)
+        {
+            timeBetweenArrowSpawns = Random.Range(minPauseTimeArrow, maxPauseTimeArrow)+ initialDistanceArrowLightning;
+        } else
+        {
+            timeBetweenThunderSpawns = Random.Range(minPauseTimeArrow, maxPauseTimeArrow) + initialDistanceArrowLightning;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        timeBetweenSpawns -= Time.deltaTime;
+        timeBetweenArrowSpawns -= Time.deltaTime;
 
-        if (timeBetweenSpawns <= 0)
+        timeBetweenThunderSpawns -= Time.deltaTime;
+
+        if (timeBetweenArrowSpawns <= 0)
         {
             int randomNumber = Random.Range(0, initialPositions.Length);
 
             Instantiate(arrow, initialPositions[randomNumber], Quaternion.identity);
 
-            timeBetweenSpawns = Random.Range(minPauseTimeArrow, maxPauseTimeArrow);
+            timeBetweenArrowSpawns = Random.Range(minPauseTimeArrow, maxPauseTimeArrow);
 
 
         }
-        else
+        else if (timeBetweenThunderSpawns <= 0)
         {
-            timeBetweenSpawns -= Time.deltaTime;
+            int randomNumber = Random.Range(0, initialPositions.Length);
+
+            Instantiate(lightning, initialPositions[randomNumber], Quaternion.identity);
+
+            timeBetweenThunderSpawns = Random.Range(minPauseTimeThunder, maxPauseTimeThunder);
+
+
+        } else
+        {
+            timeBetweenArrowSpawns -= Time.deltaTime;
+            timeBetweenThunderSpawns -= Time.deltaTime;
         }
+
 
 
     }

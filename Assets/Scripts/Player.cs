@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public float xValue;
     public float yStartPosition;
     public int lives;
+    public int lightningboltsCollected;
 
     // Start is called before the first frame update
     void Start()

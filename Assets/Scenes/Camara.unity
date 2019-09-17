@@ -233,18 +233,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 6235420028905562033, guid: 476372e307703a7459e70b235cf99dd5, type: 3}
-  startTimeBetweenSpawns: 10
-  decreaseTime: 0.5
-  minTime: 0.65
+  lightning: {fileID: 2409332544530470071, guid: 16230972dfb2de641ba6ca94a6a63b59,
+    type: 3}
   initialPositions:
   - {x: 9, y: 3}
   - {x: 9, y: 1.5}
   - {x: 9, y: 0}
   - {x: 9, y: -1.5}
   - {x: 9, y: -3}
-  randomPause: 5
-  maxPauseTimeArrow: 6
-  minPauseTimeArrow: 10
+  maxPauseTimeArrow: 3
+  minPauseTimeArrow: 6
+  maxPauseTimeThunder: 3
+  minPauseTimeThunder: 6
+  initialDistanceArrowLightning: 3
 --- !u!4 &1751684023
 Transform:
   m_ObjectHideFlags: 0
