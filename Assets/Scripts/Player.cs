@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-  public Rigidbody rb;
   private Vector2 pegasusTargetPosition;
   public float Yincrement;
   public float speed;

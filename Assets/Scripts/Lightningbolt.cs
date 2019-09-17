@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Lightningbolt : MonoBehaviour {
   public float speed;
-  public float xStartValue;
-  public float yStartValue;
   public float minimumX;
 
   void Start() {
@@ -22,7 +20,7 @@ public class Lightningbolt : MonoBehaviour {
   void OnTriggerEnter2D(Collider2D other) {
     if (other.CompareTag("Player")) {
       other.GetComponent<Player>().lightningboltsCollected = other.GetComponent<Player>().lightningboltsCollected + 1;
-      Debug.Log(other.GetComponent<Player>().lightningboltsCollected);
+      Debug.Log("Lightning Bolts Collected: " + other.GetComponent<Player>().lightningboltsCollected);
       Destroy(gameObject);
     }
   }
