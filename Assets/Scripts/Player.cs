@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(3, rb.velocity.y);
+        rb.velocity = new Vector2(0, rb.velocity.y);
         //if (rb.position.y > stageDimensions.y) { 
         if (Input.GetKey(KeyCode.DownArrow) /* No se haya salido de la pantalla*/)
         {
