@@ -25,15 +25,17 @@ public class Player : MonoBehaviour
   {
     if (lives > 0)
     {
-      transform.position = Vector2.MoveTowards(transform.position, pegasusTargetPosition, speed);
+      //transform.position = Vector2.MoveTowards(transform.position, pegasusTargetPosition, speed);
 
-      if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < maximumY)
+      if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY)
       {
-        pegasusTargetPosition = new Vector2(xValue, transform.position.y + Yincrement);
+                transform.Translate(Vector2.up * speed * Time.deltaTime);//* Time.deltaTime);
+        //pegasusTargetPosition = new Vector2(xValue, transform.position.y + Yincrement);
       }
-      else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > minimumY)
+      else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY)
       {
-        pegasusTargetPosition = new Vector2(xValue, transform.position.y - Yincrement);
+                transform.Translate(Vector2.down * speed * Time.deltaTime);// * Time.deltaTime);
+        //pegasusTargetPosition = new Vector2(xValue, transform.position.y - Yincrement);
       }
     }
     else
