@@ -27,9 +27,9 @@ public class Arrow : MonoBehaviour {
       Destroy(gameObject);
     }
 
-        else
-        {
-            Debug.Log(other.tag);
-        }
+    else
+    {
+      Debug.Log(other.tag);
+    }
   }
 }

@@ -29,12 +29,12 @@ public class Player : MonoBehaviour
 
       if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY)
       {
-                transform.Translate(Vector2.up * speed * Time.deltaTime);//* Time.deltaTime);
+        transform.Translate(Vector2.up * speed * Time.deltaTime);//* Time.deltaTime);
         //pegasusTargetPosition = new Vector2(xValue, transform.position.y + Yincrement);
       }
       else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY)
       {
-                transform.Translate(Vector2.down * speed * Time.deltaTime);// * Time.deltaTime);
+        transform.Translate(Vector2.down * speed * Time.deltaTime);// * Time.deltaTime);
         //pegasusTargetPosition = new Vector2(xValue, transform.position.y - Yincrement);
       }
     }
