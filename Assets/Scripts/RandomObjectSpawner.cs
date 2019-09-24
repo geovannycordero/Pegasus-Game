@@ -20,7 +20,6 @@ public class RandomObjectSpawner : MonoBehaviour {
   public int minPauseTimeThunder;
   public int initialDistanceArrowLightning;
 
-  // Start is called before the first frame update
   void Start() {
     int randomNumber = Random.Range(0, 2);
     if (randomNumber == 0) {
