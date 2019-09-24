@@ -235,7 +235,7 @@ MonoBehaviour:
   arrow: {fileID: 6235420028905562033, guid: 476372e307703a7459e70b235cf99dd5, type: 3}
   lightning: {fileID: 2409332544530470071, guid: 16230972dfb2de641ba6ca94a6a63b59,
     type: 3}
-  tornado: {fileID: 0}
+  tornado: {fileID: 6216815715086876225, guid: 978c71db493c1f14d9fbdeed0aa57b81, type: 3}
   initialPositions:
   - {x: 9, y: 3}
   - {x: 9, y: 1.5}
