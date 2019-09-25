@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tornado : MonoBehaviour
 {
-
   public float speed;
   public float minimumX;
   public float maxY;
@@ -12,7 +11,6 @@ public class Tornado : MonoBehaviour
 
   private string direction;
 
-  // Start is called before the first frame update
   void Start()
   {
     float number = Random.Range(0.0f, 1.0f);
@@ -24,10 +22,8 @@ public class Tornado : MonoBehaviour
     {
       direction = "down";
     }
-
   }
 
-  // Update is called once per frame
   void Update()
   {
     if (direction.Equals("up"))
