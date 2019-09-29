@@ -15,4 +15,9 @@ public class MainMenu : MonoBehaviour {
     Time.timeScale = 1f;
     mainMenu.SetActive(false);
   }
+
+  public void QuitGame(){
+    Debug.Log("QuitGame");
+    Application.Quit();
+  }
 }

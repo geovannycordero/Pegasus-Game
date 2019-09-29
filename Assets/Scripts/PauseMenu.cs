@@ -39,7 +39,8 @@ public class PauseMenu : MonoBehaviour
   }
 
   public void QuitGame() {
-    Debug.Log("QuitGame");
-    Application.Quit();
+    Debug.Log("LoadMainMenu");
+    SceneManager.LoadScene("Camara");
+    Application.LoadLevel(0);
   }
 }
