@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tornado : MonoBehaviour
+public class Twister : MonoBehaviour
 {
   public float speed;
   public float minimumX;
