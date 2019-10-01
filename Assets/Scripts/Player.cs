@@ -11,29 +11,25 @@ public class Player : MonoBehaviour
   public float minimumY;
   public float xValue;
   public float yStartPosition;
-  public int lives;
-  public int lightningboltsCollected;
+  public static int lives;
+  public static int lightningboltsCollected;
 
-  void Start()
-  {
+  void Start() {
     pegasusTargetPosition = new Vector2(xValue, yStartPosition);
+    lives = 3;
+    lightningboltsCollected = 1;
   }
 
-  void Update()
-  {
-    if (lives > 0)
-    {
-      if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY)
-      {
+  void Update() {
+    if (lives > 0) {
+      if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY) {
         transform.Translate(Vector2.up * speed * Time.deltaTime);
       }
-      else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY)
-      {
+      else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY) {
         transform.Translate(Vector2.down * speed * Time.deltaTime);
       }
     }
-    else
-    {
+    else {
       Destroy(gameObject);
     }
   }
