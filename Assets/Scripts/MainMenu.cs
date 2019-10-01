@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour {
     Debug.Log("Play Game");
     Time.timeScale = 1f;
     Debug.Log(SceneManager.GetActiveScene().buildIndex);
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
   }
 
   public void QuitGame(){
