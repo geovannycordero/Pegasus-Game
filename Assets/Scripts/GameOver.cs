@@ -7,15 +7,14 @@ public class GameOver : MonoBehaviour
 {
   public GameObject gameOverMenu;
 
-  void Start()
-  {
+  void Start() {
     gameOverMenu.SetActive(false);
   }
 
-  void Update(){
+  void Update() {
     if(Player.lives <= 0) {
       Time.timeScale = 0f;
-      gameOverMenu.SetActive(false);
+      gameOverMenu.SetActive(true);
     }
   }
 
