@@ -19,16 +19,13 @@ public class GameOver : MonoBehaviour
   }
 
   public void Restart() {
-    Debug.Log("Restarting the game...");
     Player.lives = 3;
     gameOverMenu.SetActive(false);
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     Time.timeScale = 1f;
-
   }
 
   public void LoadMenu() {
-    Debug.Log("Load Menu");
     SceneManager.LoadScene("MainMenu");
   }
 
