@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
   private Vector2 pegasusTargetPosition;
-  public float Yincrement;
   public float speed;
   public float maximumY;
   public float minimumY;
