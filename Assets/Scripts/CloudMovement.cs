@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovimientoNube : MonoBehaviour {
+public class CloudMovement : MonoBehaviour {
 	//Vector que contendrá las 3 imagenes con nubes
 	public Rigidbody2D[] nubes;
 	//velocidad con las que se mueven las nubes

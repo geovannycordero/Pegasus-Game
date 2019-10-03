@@ -15,8 +15,8 @@ public class Lightningbolt : MonoBehaviour {
 
   void OnTriggerEnter2D(Collider2D other) {
     if (other.CompareTag("Player")) {
-      other.GetComponent<Player>().lightningboltsCollected = other.GetComponent<Player>().lightningboltsCollected + 1;
-      Debug.Log("Lightning Bolts Collected: " + other.GetComponent<Player>().lightningboltsCollected);
+      Player.lightningboltsCollected = Player.lightningboltsCollected + 1;
+      Debug.Log("Lightning Bolts Collected: " + Player.lightningboltsCollected);
       Destroy(gameObject);
     }
   }
