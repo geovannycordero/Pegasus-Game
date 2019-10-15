@@ -7,6 +7,7 @@ public class RandomObjectSpawner : MonoBehaviour {
   public GameObject arrow;
   public GameObject lightning;
   public GameObject tornado;
+  public GameObject anemona;
 
   private float timeBetweenArrowSpawns;
   private float timeBetweenThunderSpawns;
