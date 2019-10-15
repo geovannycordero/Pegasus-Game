@@ -10,7 +10,7 @@ public class Anemona : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		speed = Player.speed;
+		//speed = Player.speed;
         
     }
 
