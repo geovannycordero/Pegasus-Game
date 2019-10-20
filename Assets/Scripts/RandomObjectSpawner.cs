@@ -2,16 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomObjectSpawner : MonoBehaviour {
-  public GameObject arrow;
-  public GameObject lightning;
-  public GameObject tornado;
-  public GameObject anemona;
+  public GameObject arrow, lightning, tornado, anemona;
 
-  private int minPauseTime = 3;
-  private int maxPauseTime = 5;
-  private float timeBetweenArrowSpawn;
-  private float timeBetweenThunderSpawn;
-  private float timeBetweenTwisterSpawn;
+  private int minPauseTime = 3, maxPauseTime = 5;
+  private float timeBetweenArrowSpawn, timeBetweenThunderSpawn, timeBetweenTwisterSpawn;
   public Vector2[] initialPositions; // Time to decrease when there is a level up
 
   void Start() {

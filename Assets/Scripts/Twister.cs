@@ -6,8 +6,7 @@ public class Twister : MonoBehaviour
 {
   private float speed = 3.5F;
   private float minimumX = -10F;
-  private float maxY = 3.5F;
-  private float minY = -3.5F;
+  private float maxY = 3.5F, minY = -3.5F;
   private int direction = 0; // 1 up, 0 down
 
   void Start() {

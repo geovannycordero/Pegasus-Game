@@ -7,7 +7,6 @@ public class Anemona : MonoBehaviour {
 
 	void Update() {
 		transform.Translate(Vector2.left * speed * Time.deltaTime);
-		float DY = Player.lives;
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

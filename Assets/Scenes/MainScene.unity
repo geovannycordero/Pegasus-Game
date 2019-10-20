@@ -306,8 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55641908fdbbf1a49b736b688a69b58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nubes: []
-  velocidad: -4
+  clouds: []
+  velocity: -3
 --- !u!4 &310993695
 Transform:
   m_ObjectHideFlags: 0
@@ -2696,11 +2696,6 @@ MonoBehaviour:
   - {x: 9, y: 0}
   - {x: 9, y: -1.5}
   - {x: 9, y: -3}
-  maxPauseTimeArrow: 3
-  minPauseTimeArrow: 6
-  maxPauseTimeThunder: 3
-  minPauseTimeThunder: 6
-  initialDistanceArrowLightning: 3
 --- !u!4 &1751684023
 Transform:
   m_ObjectHideFlags: 0

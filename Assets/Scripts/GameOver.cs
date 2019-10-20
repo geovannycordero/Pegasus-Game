@@ -7,10 +7,6 @@ public class GameOver : MonoBehaviour
 {
   public GameObject gameOverMenu;
 
-  void Start() {
-    gameOverMenu.SetActive(false);
-  }
-
   void Update() {
     if(Player.lives <= 0) {
       Time.timeScale = 0f;
@@ -30,7 +26,6 @@ public class GameOver : MonoBehaviour
   }
 
   public void QuitGame() {
-    Debug.Log("Quit Game");
     Application.Quit();
   }
 }

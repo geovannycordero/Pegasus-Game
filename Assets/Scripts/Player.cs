@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
-  private Vector2 pegasusTargetPosition;
+public class Player : MonoBehaviour {
   public float speed;
   public float maximumY;
   public float minimumY;
@@ -14,22 +12,16 @@ public class Player : MonoBehaviour
   public static int lightningboltsCollected;
 
   void Start() {
-    pegasusTargetPosition = new Vector2(xValue, yStartPosition);
     lives = 5;
     lightningboltsCollected = 0;
   }
 
   void Update() {
-    if (lives > 0) {
-      if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY) {
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
-      }
-      else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY) {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
-      }
+    if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY) {
+      transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
-    else {
-      Destroy(gameObject);
+    else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY) {
+      transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
   }
 }

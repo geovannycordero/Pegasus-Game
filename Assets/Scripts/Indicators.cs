@@ -5,13 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Indicators : MonoBehaviour
 {
-  public GameObject indicators;
-  public GameObject pointsText;
-  public GameObject liveOneImage;
-  public GameObject liveTwoImage;
-  public GameObject liveThreeImage;
-  public GameObject liveFourImage;
-  public GameObject liveFiveImage;
+  public GameObject indicators, pointsText;
+  public GameObject liveOneImage, liveTwoImage, liveThreeImage, liveFourImage, liveFiveImage;
 
   void Start() {
     if(SceneManager.GetActiveScene().buildIndex != 0) {
