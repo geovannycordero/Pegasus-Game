@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class Twister : MonoBehaviour
 {
-  public float speed;
-  public float minimumX;
-  public float maxY;
-  public float minY;
-  private string direction;
+  private float speed = 3.5F;
+  private float minimumX = -10F;
+  private float maxY = 3.5F;
+  private float minY = -3.5F;
+  private int direction = 0; // 1 up, 0 down
 
   void Start() {
-    float number = Random.Range(0.0f, 1.0f);
-    if (number < 0.5f) {
-      direction = "up";
-    }
-    else {
-      direction = "down";
+    if (Random.Range(0.0f, 1.0f) < 0.5f) {
+      direction = 1;
     }
   }
 
   void Update() {
-    if (direction.Equals("up")) {
+    if (direction == 1) {
       transform.Translate(Vector2.left * speed * Time.deltaTime);
       transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
@@ -29,17 +25,12 @@ public class Twister : MonoBehaviour
       transform.Translate(Vector2.left * speed * Time.deltaTime);
       transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
-
-    //Checks if the object is on the top of the screen
     if(transform.position.y >= maxY) {
-      direction = "down";
+      direction = 0;
     }
-
-    //Checks if the object is on the bottom of the screeen
     if( transform.position.y <= minY) {
-      direction = "up";
+      direction = 1;
     }
-
     if (transform.position.x <= minimumX) {
       Destroy(gameObject);
     }

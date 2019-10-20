@@ -1,22 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class RandomObjectSpawner : MonoBehaviour {
   public GameObject arrow;
   public GameObject lightning;
   public GameObject tornado;
   public GameObject anemona;
 
-  int minPauseTime = 3;
-  int maxPauseTime = 5;
-  int initialDistanceArrowLightning = 3;
-  float timeBetweenArrowSpawn;
-  float timeBetweenThunderSpawn;
-  float timeBetweenTwisterSpawn;
+  private int minPauseTime = 3;
+  private int maxPauseTime = 5;
+  private float timeBetweenArrowSpawn;
+  private float timeBetweenThunderSpawn;
+  private float timeBetweenTwisterSpawn;
   public Vector2[] initialPositions; // Time to decrease when there is a level up
 
   void Start() {
+    int initialDistanceArrowLightning = 3;
     if (Random.Range(0, 2) == 0) {
       timeBetweenArrowSpawn = Random.Range(minPauseTime, maxPauseTime) + initialDistanceArrowLightning;
     } else {
