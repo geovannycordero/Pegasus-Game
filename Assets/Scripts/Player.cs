@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
   void Start() {
     pegasusTargetPosition = new Vector2(xValue, yStartPosition);
-    lives = 3;
+    lives = 5;
     lightningboltsCollected = 0;
   }
 
