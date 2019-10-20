@@ -5,30 +5,24 @@ using UnityEngine;
 public class RandomObjectSpawner : MonoBehaviour {
   public GameObject arrow;
   public GameObject lightning;
-  public GameObject twister;
+  public GameObject tornado;
   public GameObject anemona;
 
+  int minPauseTime = 3;
+  int maxPauseTime = 5;
+  int initialDistanceArrowLightning = 3;
   float timeBetweenArrowSpawn;
   float timeBetweenThunderSpawn;
   float timeBetweenTwisterSpawn;
-
-  // Time to decrease when there is a level up
-  public Vector2[] initialPositions;
-  int maxPauseTimeArrow = 3;
-  int minPauseTimeArrow = 6;
-  int maxPauseTimeThunder = 3;
-  int minPauseTimeThunder = 6;
-  int initialDistanceArrowLightning = 3;
-  int minPauseTimeTwister = 0;
-  int maxPauseTimeTwister = 5;
+  public Vector2[] initialPositions; // Time to decrease when there is a level up
 
   void Start() {
     if (Random.Range(0, 2) == 0) {
-      timeBetweenArrowSpawn = Random.Range(minPauseTimeArrow, maxPauseTimeArrow) + initialDistanceArrowLightning;
+      timeBetweenArrowSpawn = Random.Range(minPauseTime, maxPauseTime) + initialDistanceArrowLightning;
     } else {
-      timeBetweenThunderSpawn = Random.Range(minPauseTimeArrow, maxPauseTimeArrow) + initialDistanceArrowLightning;
+      timeBetweenThunderSpawn = Random.Range(minPauseTime, maxPauseTime) + initialDistanceArrowLightning;
     }
-    timeBetweenTwisterSpawn = Random.Range(minPauseTimeTwister, maxPauseTimeTwister) + initialDistanceArrowLightning - 1f;
+    timeBetweenTwisterSpawn = Random.Range(minPauseTime, maxPauseTime) + 2;
   }
 
   void Update() {
@@ -40,12 +34,10 @@ public class RandomObjectSpawner : MonoBehaviour {
       createThunderObject();
     }
     if (timeBetweenArrowSpawn <= 0) {
-      if(0 < Player.lightningboltsCollected) {
-        createArrowObject();
-      }
+      createArrowObject();
     }
     if (timeBetweenTwisterSpawn <= 0) {
-      if(4 < Player.lightningboltsCollected) {
+      if(0 < Player.lightningboltsCollected) {
         createTwisterObject();
       }
     }
@@ -53,28 +45,28 @@ public class RandomObjectSpawner : MonoBehaviour {
 
   void createArrowObject() {
     Instantiate(
-      arrow,
-      initialPositions[Random.Range(0, initialPositions.Length)],
-      Quaternion.identity
+    arrow,
+    initialPositions[Random.Range(0, initialPositions.Length)],
+    Quaternion.identity
     );
-    timeBetweenArrowSpawn = Random.Range(minPauseTimeArrow, maxPauseTimeArrow);
+    timeBetweenArrowSpawn = Random.Range(minPauseTime, maxPauseTime);
   }
 
   void createThunderObject(){
     Instantiate(
-      lightning,
-      initialPositions[Random.Range(0, initialPositions.Length)],
-      Quaternion.identity
+    lightning,
+    initialPositions[Random.Range(0, initialPositions.Length)],
+    Quaternion.identity
     );
-    timeBetweenThunderSpawn = Random.Range(minPauseTimeThunder, maxPauseTimeThunder);
+    timeBetweenThunderSpawn = Random.Range(minPauseTime, maxPauseTime);
   }
 
   void createTwisterObject() {
     Instantiate(
-      twister,
-      initialPositions[Random.Range(0, initialPositions.Length)],
-      Quaternion.identity
+    tornado,
+    initialPositions[Random.Range(0, initialPositions.Length)],
+    Quaternion.identity
     );
-    timeBetweenTwisterSpawn = Random.Range(minPauseTimeTwister, maxPauseTimeTwister);
+    timeBetweenTwisterSpawn = Random.Range(minPauseTime, maxPauseTime);
   }
 }
