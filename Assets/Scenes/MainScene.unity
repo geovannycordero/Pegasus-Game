@@ -1944,7 +1944,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 24
-    m_FontStyle: 1
+    m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
@@ -3248,6 +3248,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lightningbolt
       objectReference: {fileID: 0}
+    - target: {fileID: 2409332544530470071, guid: 16230972dfb2de641ba6ca94a6a63b59,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2409332544530470026, guid: 16230972dfb2de641ba6ca94a6a63b59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3326,6 +3331,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pegasus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4260736871100084737, guid: 034ccad8e49cf6d4c88615988805474e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4260736871100084741, guid: 034ccad8e49cf6d4c88615988805474e,
         type: 3}
