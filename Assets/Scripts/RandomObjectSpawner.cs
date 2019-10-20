@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +5,7 @@ using UnityEngine;
 public class RandomObjectSpawner : MonoBehaviour {
   public GameObject arrow;
   public GameObject lightning;
-  public GameObject twister;
+  public GameObject tornado;
   public GameObject anemona;
 
   private float timeBetweenArrowSpawns;
@@ -53,7 +52,7 @@ public class RandomObjectSpawner : MonoBehaviour {
     if ( timeBetweenTornadosSpawns <= 0 ) {
       //Change values to parameters
       int randomNumber = Random.Range(0, initialPositions.Length);
-      Instantiate(twister, initialPositions[randomNumber], Quaternion.identity);
+      Instantiate(tornado, initialPositions[randomNumber], Quaternion.identity);
       timeBetweenTornadosSpawns = Random.Range(0, 5);
     }
   }
