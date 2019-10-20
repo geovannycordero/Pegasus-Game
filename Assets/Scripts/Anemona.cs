@@ -13,11 +13,6 @@ public class Anemona : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.CompareTag("Player")) {
 			Player.lives = Player.lives - 1;
-			Debug.Log("Lives: " + Player.lives);
-			if(Player.lives <= 0) {
-				Debug.Log("Should quit");
-				Application.Quit();
-			}
 			Destroy(gameObject);
 		}
 	}

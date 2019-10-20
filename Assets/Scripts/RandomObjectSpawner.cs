@@ -6,14 +6,14 @@ using UnityEngine;
 public class RandomObjectSpawner : MonoBehaviour {
   public GameObject arrow;
   public GameObject lightning;
-  public GameObject tornado;
+  public GameObject twister;
   public GameObject anemona;
 
   private float timeBetweenArrowSpawns;
   private float timeBetweenThunderSpawns;
   private float timeBetweenTornadosSpawns;
 
-  // Time to decrease when there is a level up
+  // Time to decrease when there is a l evel up
   public Vector2[] initialPositions;
   public int maxPauseTimeArrow;
   public int minPauseTimeArrow;
@@ -50,11 +50,10 @@ public class RandomObjectSpawner : MonoBehaviour {
       timeBetweenArrowSpawns -= Time.deltaTime;
       timeBetweenThunderSpawns -= Time.deltaTime;
     }
-    if ( timeBetweenTornadosSpawns <= 0 )
-    {
+    if ( timeBetweenTornadosSpawns <= 0 ) {
       //Change values to parameters
       int randomNumber = Random.Range(0, initialPositions.Length);
-      Instantiate(tornado, initialPositions[randomNumber], Quaternion.identity);
+      Instantiate(twister, initialPositions[randomNumber], Quaternion.identity);
       timeBetweenTornadosSpawns = Random.Range(0, 5);
     }
   }
