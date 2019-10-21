@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Anemona : MonoBehaviour {
+	
 	public float speed;
-<<<<<<< HEAD
+
 	public float minimumX;
 	public float maximumY;
 	public float minimumY;
@@ -51,17 +52,6 @@ public class Anemona : MonoBehaviour {
 			Application.Quit();
 		  }
 		  Destroy(gameObject);
-=======
-
-	void Update() {
-		transform.Translate(Vector2.left * speed * Time.deltaTime);
-	}
-
-	void OnTriggerEnter2D(Collider2D other) {
-		if (other.CompareTag("Player")) {
-			Player.lives = Player.lives - 1;
-			Destroy(gameObject);
->>>>>>> d2537fdbfa4f109509becc28b326225214201c92
 		}
 	}
 }
