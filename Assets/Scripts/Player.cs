@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-  public float speed;
-  public float maximumY;
-  public float minimumY;
-  public float xValue;
-  public float yStartPosition;
+  private float speed = 3F;
+  private float maximumY = 3.5F;
+  private float minimumY = -3.5F;
   public static int lives;
   public static int lightningboltsCollected;
 
