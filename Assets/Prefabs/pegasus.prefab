@@ -95,14 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bf1e3c75bf22149a89a2ac87564bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  Yincrement: 0.5
   speed: 100
   maximumY: 3.5
   minimumY: -3.5
   xValue: -6
   yStartPosition: 0
-  lives: 3
 --- !u!50 &4260736871100084738
 Rigidbody2D:
   serializedVersion: 4
@@ -148,5 +145,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0

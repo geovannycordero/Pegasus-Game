@@ -10,26 +10,25 @@ public class Player : MonoBehaviour
   public float minimumY;
   public float xValue;
   public float yStartPosition;
+public class Player : MonoBehaviour {
+  private float speed = 3F;
+  private float maximumY = 3.5F;
+  private float minimumY = -3.5F;
+>>>>>>> d2537fdbfa4f109509becc28b326225214201c92
   public static int lives;
   public static int lightningboltsCollected;
 
   void Start() {
-    pegasusTargetPosition = new Vector2(xValue, yStartPosition);
-    lives = 3;
+    lives = 5;
     lightningboltsCollected = 0;
   }
 
   void Update() {
-    if (lives > 0) {
-      if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY) {
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
-      }
-      else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY) {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
-      }
+    if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY) {
+      transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
-    else {
-      Destroy(gameObject);
+    else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY) {
+      transform.Translate(Vector2.down * speed * Time.deltaTime);
     }
   }
 }
