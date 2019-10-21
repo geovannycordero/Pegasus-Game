@@ -12,6 +12,7 @@ public class RandomObjectSpawner : MonoBehaviour {
   private float timeBetweenArrowSpawns;
   private float timeBetweenThunderSpawns;
   private float timeBetweenTornadosSpawns;
+  private float timeBetweenAnemonaSpawns;
 
   // Time to decrease when there is a level up
   public Vector2[] initialPositions;
@@ -30,12 +31,14 @@ public class RandomObjectSpawner : MonoBehaviour {
     }
 
     timeBetweenTornadosSpawns = 5f;
+	timeBetweenAnemonaSpawns = 6f;
   }
 
   void Update() {
     timeBetweenArrowSpawns -= Time.deltaTime;
     timeBetweenThunderSpawns -= Time.deltaTime;
     timeBetweenTornadosSpawns -= Time.deltaTime;
+	timeBetweenAnemonaSpawns -= Time.deltaTime;
 
     if (timeBetweenArrowSpawns <= 0) {
       int randomNumber = Random.Range(0, initialPositions.Length);
@@ -57,5 +60,12 @@ public class RandomObjectSpawner : MonoBehaviour {
       Instantiate(tornado, initialPositions[randomNumber], Quaternion.identity);
       timeBetweenTornadosSpawns = Random.Range(0, 5);
     }
-  }
-}
+	if(timeBetweenAnemonaSpawns <= 0){
+		
+		int randomNumber = Random.Range(0, initialPositions.Length);
+        Instantiate(anemona, initialPositions[randomNumber], Quaternion.identity);
+		timeBetweenAnemonaSpawns = 6f;
+	}
+	
+  } // Update
+}// class

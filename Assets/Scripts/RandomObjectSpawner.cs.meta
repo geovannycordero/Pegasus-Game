@@ -9,6 +9,8 @@ MonoImporter:
       type: 3}
   - tornado: {fileID: 6216815715086876225, guid: 978c71db493c1f14d9fbdeed0aa57b81,
       type: 3}
+  - anemona: {fileID: 2118486599112394169, guid: 3618bbf842f0b184eb751f95c80d9a38,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

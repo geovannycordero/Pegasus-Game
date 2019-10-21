@@ -2393,6 +2393,7 @@ MonoBehaviour:
   lightning: {fileID: 2409332544530470071, guid: 16230972dfb2de641ba6ca94a6a63b59,
     type: 3}
   tornado: {fileID: 6216815715086876225, guid: 978c71db493c1f14d9fbdeed0aa57b81, type: 3}
+  anemona: {fileID: 2118486599112394169, guid: 3618bbf842f0b184eb751f95c80d9a38, type: 3}
   initialPositions:
   - {x: 9, y: 3}
   - {x: 9, y: 1.5}
@@ -3031,7 +3032,7 @@ PrefabInstance:
     - target: {fileID: 4260736871100084741, guid: 034ccad8e49cf6d4c88615988805474e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.209
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4260736871100084741, guid: 034ccad8e49cf6d4c88615988805474e,
         type: 3}
