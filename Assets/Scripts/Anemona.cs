@@ -52,6 +52,8 @@ public class Anemona : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            //When -> Key is pressed, the fight mode will be active so the anemoi will die but the player
+            //will not lose a life
             if (Input.GetAxis("Horizontal") > 0)
             {
                 Player.anemoiFights++;
@@ -59,8 +61,8 @@ public class Anemona : MonoBehaviour
             else
             {
                 Player.lives = Player.lives - 1;
-                Destroy(gameObject);
             }
+            Destroy(gameObject);
         }
     }
 }

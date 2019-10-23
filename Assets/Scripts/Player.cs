@@ -35,7 +35,8 @@ public class Player : MonoBehaviour
 
     public static float getNormalizedScore()
     {
-        return (float)(lightningboltsCollected - lightningLastLevel) / lightningCurrentLevel;
+        
+        return (float)(lightningboltsCollected - (lightningLastLevel)) / (lightningCurrentLevel- lightningLastLevel);
     }
 
     void Update()
@@ -63,7 +64,9 @@ public class Player : MonoBehaviour
         {
             lightningLastLevel = 3;
         }
-        lightningCurrentLevel = lightningCurrentLevel + lightningLastLevel;
+        int last = lightningLastLevel;
+        lightningLastLevel = lightningCurrentLevel;
+        lightningCurrentLevel = lightningCurrentLevel + last;
     }
 
 

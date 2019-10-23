@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Indicators : MonoBehaviour
 {
-    public GameObject indicators, pointsText, levelText;
+    public GameObject indicators, pointsText, levelText, levelUpMessage;
     public GameObject liveOneImage, liveTwoImage, liveThreeImage,
           liveFourImage, liveFiveImage;
     [SerializeField] private LevelScoreBar levelScoreBar;
+    public static int level=1;
+    public float secondsLevelUp;
 
     void Start()
     {
@@ -20,8 +22,10 @@ public class Indicators : MonoBehaviour
             liveThreeImage.SetActive(true);
             liveFourImage.SetActive(true);
             liveFiveImage.SetActive(true);
+            levelUpMessage.SetActive(false);
 
             levelScoreBar.setSize(0);
+            levelText.GetComponent<UnityEngine.UI.Text>().text = "Level:    " + level;
 
         }
     }
@@ -31,8 +35,15 @@ public class Indicators : MonoBehaviour
         //para el puntaje tambien cuenta el numero de anemoi peleados
         int score = Player.lightningboltsCollected + Player.anemoiFights;
         pointsText.GetComponent<UnityEngine.UI.Text>().text = "Score:    " + score;
-        levelText.GetComponent<UnityEngine.UI.Text>().text = "Level:    " + Player.level;
-        levelScoreBar.setSize(Player.getNormalizedScore());
+        if (level != Player.level)
+        {
+            level = Player.level;
+            levelText.GetComponent<UnityEngine.UI.Text>().text = "Level:    " + Player.level;
+            levelUpMessage.SetActive(true);
+            StartCoroutine(LateCall());
+        }
+        float nomalized = Player.getNormalizedScore();
+        levelScoreBar.setSize(nomalized);
         if (Player.lives == 4)
         {
             liveFiveImage.SetActive(false);
@@ -52,7 +63,15 @@ public class Indicators : MonoBehaviour
         if (Player.lives < 1)
         {
             liveOneImage.SetActive(false);
+            levelUpMessage.SetActive(false);
         }
+
+    }
+
+    IEnumerator LateCall()
+    {
+        yield return new WaitForSeconds(secondsLevelUp);
+        levelUpMessage.SetActive(false);
 
     }
 }
