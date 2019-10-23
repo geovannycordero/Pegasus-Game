@@ -4,29 +4,70 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-  public Vector2 pegasusTargetPosition;
-  
-  public float xValue;
-  public float yStartPosition;
-  
-  private float speed = 3F;
-  private float maximumY = 3.5F;
-  private float minimumY = -3.5F;
+    public Vector2 pegasusTargetPosition;
 
-  public static int lives;
-  public static int lightningboltsCollected;
+    public float xValue;
+    public float yStartPosition;
 
-  void Start() {
-    lives = 5;
-    lightningboltsCollected = 0;
-  }
+    private float speed = 3F;
+    private float maximumY = 3.5F;
+    private float minimumY = -3.5F;
 
-  void Update() {
-    if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY) {
-      transform.Translate(Vector2.up * speed * Time.deltaTime);
+    public static int lives;
+    public static int level;
+    public static int lightningboltsCollected;
+    public static int lightningCurrentLevel = 5;
+    public static int lightningLastLevel = 0;
+    public static int anemoiFights;
+    public static float normalizedScore;
+
+    void Start() {
+        lives = 5;
+        level = 1;
+        lightningboltsCollected = 0;
+        anemoiFights = 0;
     }
-    else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY) {
-      transform.Translate(Vector2.down * speed * Time.deltaTime);
+
+    public int numLightningNextLevel()
+    {
+        return lightningCurrentLevel + lightningLastLevel;
     }
-  }
+
+    public static float getNormalizedScore()
+    {
+        
+        return (float)(lightningboltsCollected - (lightningLastLevel)) / (lightningCurrentLevel- lightningLastLevel);
+    }
+
+    void Update()
+    {
+        if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY)
+        {
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
+        }
+        else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY)
+        {
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
+        }
+        //Para pasar de nivel el jugador debe haber recolectado una cierta cantidad de rayos, sin embargo,
+        //para el puntaje tambien cuenta el numero de anemoi peleados
+        if (lightningboltsCollected >= lightningCurrentLevel)
+        {
+            newLevel();
+        }
+    }
+
+    public void newLevel()
+    {
+        level++;
+        if (lightningLastLevel == 0)
+        {
+            lightningLastLevel = 3;
+        }
+        int last = lightningLastLevel;
+        lightningLastLevel = lightningCurrentLevel;
+        lightningCurrentLevel = lightningCurrentLevel + last;
+    }
+
+
 }
