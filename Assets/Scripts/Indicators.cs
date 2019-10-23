@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Indicators : MonoBehaviour
 {
-    public GameObject indicators, pointsText;
+    public GameObject indicators, pointsText, levelText;
     public GameObject liveOneImage, liveTwoImage, liveThreeImage,
           liveFourImage, liveFiveImage;
     [SerializeField] private LevelScoreBar levelScoreBar;
@@ -31,7 +31,7 @@ public class Indicators : MonoBehaviour
         //para el puntaje tambien cuenta el numero de anemoi peleados
         int score = Player.lightningboltsCollected + Player.anemoiFights;
         pointsText.GetComponent<UnityEngine.UI.Text>().text = "Score:    " + score;
-
+        levelText.GetComponent<UnityEngine.UI.Text>().text = "Level:    " + Player.level;
         levelScoreBar.setSize(Player.getNormalizedScore());
         if (Player.lives == 4)
         {

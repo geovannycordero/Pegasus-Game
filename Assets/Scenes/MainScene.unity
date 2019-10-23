@@ -1269,6 +1269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicators: {fileID: 986039383}
   pointsText: {fileID: 1326654488}
+  levelText: {fileID: 1271440178}
   liveOneImage: {fileID: 1096751074}
   liveTwoImage: {fileID: 463809745}
   liveThreeImage: {fileID: 399827677}
