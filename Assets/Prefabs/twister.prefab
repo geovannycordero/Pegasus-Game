@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7030476757011848345}
   - component: {fileID: 3169708406271497967}
   - component: {fileID: 4806250427692970684}
+  - component: {fileID: 8015667399743160144}
   m_Layer: 0
   m_Name: twister
   m_TagString: Untagged
@@ -71,7 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a8fc63190ee571c4c99b95c7943f8156, type: 3}
+  m_Sprite: {fileID: 3255800203211723129, guid: dc627e9f52ec4d046a0e5031d03e173f,
+    type: 3}
   m_Color: {r: 0.5283019, g: 0.46600214, b: 0.46600214, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,10 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a23a1ff94b931b3469404952f0b1a0ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
-  minimumX: -10
-  maxY: 3.5
-  minY: -3.5
 --- !u!61 &4806250427692970684
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -115,7 +113,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.19, y: 0.17}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -124,3 +122,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19416532, y: 0.22098963}
   m_EdgeRadius: 0
+--- !u!95 &8015667399743160144
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216815715086876225}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ac2ef0ea4b3de741a467a93dc73d324, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
