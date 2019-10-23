@@ -43,7 +43,6 @@ public class Anemona : MonoBehaviour
 
         if (transform.position.x <= minimumX)
         {
-
             Destroy(gameObject);
         }
     }// Update

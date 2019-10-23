@@ -48,7 +48,8 @@ public class Player : MonoBehaviour
         {
             transform.Translate(Vector2.down * speed * Time.deltaTime);
         }
-
+        //Para pasar de nivel el jugador debe haber recolectado una cierta cantidad de rayos, sin embargo,
+        //para el puntaje tambien cuenta el numero de anemoi peleados
         if (lightningboltsCollected >= lightningCurrentLevel)
         {
             newLevel();
