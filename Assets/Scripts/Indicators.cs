@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Indicators : MonoBehaviour
 {
-  public GameObject indicators, pointsText;
-  public GameObject liveOneImage, liveTwoImage, liveThreeImage, liveFourImage, liveFiveImage;
+    public GameObject indicators, pointsText;
+    public GameObject liveOneImage, liveTwoImage, liveThreeImage,
+          liveFourImage, liveFiveImage;
+    [SerializeField] private LevelScoreBar levelScoreBar;
 
   void Start() {
     if(SceneManager.GetActiveScene().buildIndex != 0) {
@@ -16,10 +18,15 @@ public class Indicators : MonoBehaviour
       liveThreeImage.SetActive(true);
       liveFourImage.SetActive(true);
       liveFiveImage.SetActive(true);
+            
+      levelScoreBar.setSize(0);
+      
     }
   }
   void Update() {
     pointsText.GetComponent<UnityEngine.UI.Text>().text = "Points:    " + Player.lightningboltsCollected;
+        
+    levelScoreBar.setSize(Player.getNormalizedScore());
     if (Player.lives == 4) {
       liveFiveImage.SetActive(false);
     }
@@ -32,5 +39,6 @@ public class Indicators : MonoBehaviour
     if (Player.lives == 1) {
       liveTwoImage.SetActive(false);
     }
+        
   }
 }

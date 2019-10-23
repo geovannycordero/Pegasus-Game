@@ -14,19 +14,49 @@ public class Player : MonoBehaviour
   private float minimumY = -3.5F;
 
   public static int lives;
+  public static int level;
   public static int lightningboltsCollected;
+  public static int lightningCurrentLevel=5;
+  public static int lightningLastLevel=3;
+  public static float normalizedScore;
 
-  void Start() {
+    void Start() {
     lives = 5;
     lightningboltsCollected = 0;
   }
 
-  void Update() {
-    if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY) {
-      transform.Translate(Vector2.up * speed * Time.deltaTime);
-    }
-    else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY) {
-      transform.Translate(Vector2.down * speed * Time.deltaTime);
-    }
+  public int numLightningNextLevel()
+  {
+        return lightningCurrentLevel+ lightningLastLevel;
   }
+
+    public static float getNormalizedScore()
+    {
+        
+        return (float)lightningboltsCollected / lightningCurrentLevel;
+    }
+
+    void Update()
+    {
+        if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY)
+        {
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
+        }
+        else if (Input.GetAxis("Vertical") < 0 && transform.position.y > minimumY)
+        {
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
+        }
+        normalizedScore = lightningboltsCollected / lightningCurrentLevel;
+        if (lightningboltsCollected >= lightningCurrentLevel)
+        {
+            newLevel();
+        }
+    }
+
+    public void newLevel()
+    {
+        lightningCurrentLevel = lightningCurrentLevel + lightningLastLevel;
+    }
+
+
 }
