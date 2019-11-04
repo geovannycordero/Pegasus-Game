@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class RandomObjectSpawner : MonoBehaviour
@@ -23,7 +24,7 @@ public class RandomObjectSpawner : MonoBehaviour
 
 
   // para detener la generacion de enemigos durante el cambio de dificultad
-  public bool stopSpawn = false;
+  public static bool stopSpawn = false;
 
   void Start()
   {
@@ -41,42 +42,43 @@ public class RandomObjectSpawner : MonoBehaviour
 
   void Update()
   {
-    timeBetweenArrowSpawn -= Time.deltaTime;
-    timeBetweenThunderSpawn -= Time.deltaTime;
+	if(!stopSpawn){
+		timeBetweenArrowSpawn -= Time.deltaTime;
+		timeBetweenThunderSpawn -= Time.deltaTime;
 
-    if (timeBetweenThunderSpawn <= 0)
-    {
-      createThunderObject();
-    }
-    if (timeBetweenArrowSpawn <= 0)
-    {
-      createArrowObject();
-    }
-    //porque los tornados se van a generar en el nivel dos y a partir del nivel cuatro para asi ir aumentando
-    //la dificultad gradualmente
-    if ((Player.level == 2) || (Player.level > 3))
-    {
-      timeBetweenTwisterSpawn -= Time.deltaTime;
-      if (timeBetweenTwisterSpawn <= 0)
-      {
-        if (0 < Player.lightningboltsCollected)
-        {
-          createTwisterObject();
-        }
-      }
-    }
-    //porque las anemoi se van a comenzar a generar a partir del nivel 3
-    if (Player.level > 2)
-    {
-      timeBetweenAnemonaSpawns -= Time.deltaTime;
-      if (timeBetweenAnemonaSpawns <= 0)
-      {
-        int randomNumber = Random.Range(0, initialPositions.Length);
-        Instantiate(anemona, initialPositions[randomNumber], Quaternion.identity);
-        timeBetweenAnemonaSpawns = 6f;
-      }
-    }
-
+		if (timeBetweenThunderSpawn <= 0)
+		{
+		  createThunderObject();
+		}
+		if (timeBetweenArrowSpawn <= 0)
+		{
+		  createArrowObject();
+		}
+		//porque los tornados se van a generar en el nivel dos y a partir del nivel cuatro para asi ir aumentando
+		//la dificultad gradualmente
+		if ((Player.level == 2) || (Player.level > 3))
+		{
+		  timeBetweenTwisterSpawn -= Time.deltaTime;
+		  if (timeBetweenTwisterSpawn <= 0)
+		  {
+			if (0 < Player.lightningboltsCollected)
+			{
+			  createTwisterObject();
+			}
+		  }
+		}
+		//porque las anemoi se van a comenzar a generar a partir del nivel 3
+		if (Player.level > 2)
+		{
+		  timeBetweenAnemonaSpawns -= Time.deltaTime;
+		  if (timeBetweenAnemonaSpawns <= 0)
+		  {
+			int randomNumber = Random.Range(0, initialPositions.Length);
+			Instantiate(anemona, initialPositions[randomNumber], Quaternion.identity);
+			timeBetweenAnemonaSpawns = 6f;
+		  }
+		}
+	}
 
   } // Update
 
@@ -110,4 +112,5 @@ public class RandomObjectSpawner : MonoBehaviour
     );
     timeBetweenTwisterSpawn = Random.Range(minPauseTime, maxPauseTime);
   }
+   
 }

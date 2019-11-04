@@ -60,6 +60,8 @@ public class Player : MonoBehaviour
     public void newLevel()
     {
         level++;
+		RandomObjectSpawner.stopSpawn = true;
+		
         if (lightningLastLevel == 0)
         {
             lightningLastLevel = 3;
@@ -68,6 +70,5 @@ public class Player : MonoBehaviour
         lightningLastLevel = lightningCurrentLevel;
         lightningCurrentLevel = lightningCurrentLevel + last;
     }
-
 
 }

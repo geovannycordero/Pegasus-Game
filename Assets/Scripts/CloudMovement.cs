@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CloudMovement : MonoBehaviour {
+	
+	
 	public Rigidbody2D[] clouds;
 	//vector que contiene la posición en donde respawnean la nube que se queda fuera de escuadre
 	private Vector2 extremoDerecho = new Vector2(19f,0f);

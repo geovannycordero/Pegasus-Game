@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Setting : MonoBehaviour
 {
-    private int gameLevel;
+    public static int gameLevel;
     private int[] gameStages = { 3, 5, 9, 13, 17, 20, 23, 27, 30, 34, 40, 50, 70, 99 };
 
     public static float cloudsSpeed;
