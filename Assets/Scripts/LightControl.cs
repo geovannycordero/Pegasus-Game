@@ -21,22 +21,25 @@ public class LightControl : MonoBehaviour
 		{
 			if(Player.level == 3)
 			{
-				directionalLight.intensity = 0.85f;
+				StartCoroutine("ReduceLight");
 				recentLevelChange =false;
 			}
 			if(Player.level == 4)
 			{
-				directionalLight.intensity = 0.75f;
+				StartCoroutine("ReduceLight");
+				//directionalLight.intensity = 0.75f;
 				recentLevelChange =false;
 			}
 			if(Player.level == 5)
 			{
-				directionalLight.intensity =  0.6f;
+				StartCoroutine("ReduceLight");
+				//directionalLight.intensity =  0.6f;
 				recentLevelChange =false;
 			}
 			if(Player.level == 6)
 			{
-				directionalLight.intensity = 0.5f;
+				StartCoroutine("ReduceLight");
+				//directionalLight.intensity = 0.5f;
 				recentLevelChange =false;
 			}
 			if(Player.level <3 )
@@ -45,4 +48,13 @@ public class LightControl : MonoBehaviour
 			}
 		}
     }
+	
+	IEnumerator ReduceLight () 
+	{
+		for(int i  =0 ; i < 15; i++)
+		{
+			directionalLight.intensity-=0.01f;
+			yield return new WaitForSeconds(0.5f);
+		}
+	}
 }

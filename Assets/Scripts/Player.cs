@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
         return (float)(lightningboltsCollected - (lightningLastLevel)) / (lightningCurrentLevel- lightningLastLevel);
     }
 
+	
     void Update()
     {
         if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY)
