@@ -1786,7 +1786,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 4.2414703
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1810,7 +1810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094287725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.79, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1956,13 +1956,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.93796444, g: 0, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 7fcee48b850cee949b61b3356004ad88, type: 3}
     m_FontSize: 27
     m_FontStyle: 3
     m_BestFit: 0
@@ -1997,7 +1997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 0.5}
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1 &1110979331
@@ -3081,7 +3081,6 @@ MonoBehaviour:
   - {x: 9, y: 0, z: -5}
   - {x: 9, y: -1.5, z: -5}
   - {x: 9, y: -3, z: -5}
-  stopSpawn: 0
 --- !u!4 &1751684023
 Transform:
   m_ObjectHideFlags: 0
@@ -3643,7 +3642,7 @@ PrefabInstance:
     - target: {fileID: 481960893722143082, guid: 338b0dab34a483740a23cf81dfdc68fb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.04
+      value: 1.02
       objectReference: {fileID: 0}
     - target: {fileID: 481960893722143082, guid: 338b0dab34a483740a23cf81dfdc68fb,
         type: 3}

@@ -16,7 +16,7 @@ public class BackGround : MonoBehaviour
     void Update()
     {
 		
-		if(RandomObjectSpawner.stopSpawn && Player.level <= 5 )
+		if(RandomObjectSpawner.stopSpawn && Player.level <= 6 )
 		{
 			Debug.Log("Entra a backGround");
 			StartCoroutine("MoveBackGround");
