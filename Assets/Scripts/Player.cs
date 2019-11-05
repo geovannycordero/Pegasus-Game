@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
     {
         level++;
 		RandomObjectSpawner.stopSpawn = true;
+		LightControl.recentLevelChange =true;
 		
         if (lightningLastLevel == 0)
         {
