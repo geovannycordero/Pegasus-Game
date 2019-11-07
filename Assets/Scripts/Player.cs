@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Vector2 pegasusTargetPosition;
+	
+	public SpriteRenderer sprite;
 
     public float xValue;
     public float yStartPosition;
@@ -14,15 +16,20 @@ public class Player : MonoBehaviour
     private float minimumY = -3.5F;
 
     public static int lives;
+	public static int lastLiveCount;
     public static int level;
     public static int lightningboltsCollected;
     public static int lightningCurrentLevel = 5;
     public static int lightningLastLevel = 0;
     public static int anemoiFights;
     public static float normalizedScore;
+	
+	//Prefab
+	public GameObject attack;
 
     void Start() {
         lives = 5;
+		lastLiveCount=5;
         level = 1;
         lightningboltsCollected = 0;
     }
@@ -30,6 +37,7 @@ public class Player : MonoBehaviour
     public static void restartPlayer()
     {
         lives = 5;
+		lastLiveCount=5;
         level = 1;
         lightningLastLevel = 0;
         lightningboltsCollected = 0;
@@ -65,6 +73,18 @@ public class Player : MonoBehaviour
         {
             newLevel();
         }
+		if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) )
+        {
+			Vector3 attackPosition = transform.position;
+			attackPosition.x+= 1.3f;
+            Instantiate(attack,attackPosition,Quaternion.identity);
+        }
+		//Si tiene menos vidas que en el anterior frame significa que sufrió daño
+		if(lastLiveCount>lives)
+		{
+			lastLiveCount =lives;
+			StartCoroutine("DamageEffect");
+		}
     }
 
     public void newLevel()
@@ -81,5 +101,17 @@ public class Player : MonoBehaviour
         lightningLastLevel = lightningCurrentLevel;
         lightningCurrentLevel = lightningCurrentLevel + last;
     }
+	
+	IEnumerator DamageEffect () 
+	{
+		Debug.Log("Daño");
+		for(int i  =0 ; i < 3; i++)
+		{
+			GetComponent<SpriteRenderer>().color = Color.red;
+			yield return new WaitForSeconds(0.05f);
+			GetComponent<SpriteRenderer>().color = Color.white;
+			yield return new WaitForSeconds(0.05f);
+		}
+	}
 
 }

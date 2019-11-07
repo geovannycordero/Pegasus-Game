@@ -13,13 +13,14 @@ public class Anemona : MonoBehaviour
     public float maximumY;
     public float minimumY;
 
-    public GameObject pegasus;
+    public GameObject pegasus,attack;
 
     // Start is called before the first frame update
     void Start()
     {
 
         pegasus = GameObject.FindWithTag("Player");
+		attack = GameObject.FindWithTag("Attack");
     }
 
     // Update is called once per frame
@@ -72,20 +73,19 @@ public class Anemona : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
+		Debug.Log("Contacto");
         if (other.CompareTag("Player"))
         {
-            //When -> Key is pressed, the fight mode will be active so the anemoi will die but the player
-            //will not lose a life
-            if (Input.GetAxis("Horizontal") > 0)
-            {
-                Player.anemoiFights++;
-            }
-            else
-            {
-                Player.lives = Player.lives - 1;
-            }
+            Player.lives = Player.lives - 1;
             Destroy(gameObject);
-        }
+        }else{
+			
+			if(other.CompareTag("Attack"))
+			{
+				Debug.Log("Contacto");
+				Player.anemoiFights++;
+				Destroy(gameObject);
+			}
+		}
     }
 }
