@@ -16,7 +16,8 @@ public class GameOver : MonoBehaviour
   }
 
   public void Restart() {
-    Player.lives = 5;
+     //Player.lives = 5;
+    Player.restartPlayer();
     gameOverMenu.SetActive(false);
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     Time.timeScale = 1f;

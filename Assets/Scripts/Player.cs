@@ -25,6 +25,15 @@ public class Player : MonoBehaviour
         lives = 5;
         level = 1;
         lightningboltsCollected = 0;
+    }
+
+    public static void restartPlayer()
+    {
+        lives = 5;
+        level = 1;
+        lightningLastLevel = 0;
+        lightningboltsCollected = 0;
+        lightningCurrentLevel = 5;
         anemoiFights = 0;
     }
 
