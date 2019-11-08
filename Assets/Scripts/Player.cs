@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Vector2 pegasusTargetPosition;
-	
+
 	public SpriteRenderer sprite;
 
     public float xValue;
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public static int lightningLastLevel = 0;
     public static int anemoiFights;
     public static float normalizedScore;
-	
+
 	//Prefab
 	public GameObject attack;
 
@@ -52,11 +52,11 @@ public class Player : MonoBehaviour
 
     public static float getNormalizedScore()
     {
-        
+
         return (float)(lightningboltsCollected - (lightningLastLevel)) / (lightningCurrentLevel- lightningLastLevel);
     }
 
-	
+
     void Update()
     {
         if (Input.GetAxis("Vertical") > 0 && transform.position.y < maximumY)
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
         level++;
 		RandomObjectSpawner.stopSpawn = true;
 		LightControl.recentLevelChange =true;
-		
+
         if (lightningLastLevel == 0)
         {
             lightningLastLevel = 3;
@@ -101,10 +101,9 @@ public class Player : MonoBehaviour
         lightningLastLevel = lightningCurrentLevel;
         lightningCurrentLevel = lightningCurrentLevel + last;
     }
-	
+
 	IEnumerator DamageEffect () 
 	{
-		Debug.Log("Daño");
 		for(int i  =0 ; i < 3; i++)
 		{
 			GetComponent<SpriteRenderer>().color = Color.red;
