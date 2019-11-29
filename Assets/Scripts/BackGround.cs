@@ -21,6 +21,10 @@ public class BackGround : MonoBehaviour
 		{
 			StartCoroutine("MoveBackGround");
 		}
+		if(Player.level >=6)
+		{
+			RandomObjectSpawner.stopSpawn = false;
+		}
 
     }
 
@@ -31,6 +35,6 @@ public class BackGround : MonoBehaviour
 		backGroundImage.velocity = new Vector2(-4f,0);
         yield return new WaitForSeconds(3f);
 		backGroundImage.velocity = new Vector2(0,0);
-		RandomObjectSpawner.stopSpawn=false;
+		RandomObjectSpawner.stopSpawn= false;
 	}
 }
